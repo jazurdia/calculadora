@@ -1,11 +1,15 @@
 import React from 'react';
-import './App.css';
+import styles from './App.module.css';
+import NumericButton from './components/NumericButton/NumericButton';
 
 function App() {
   return (
-    <div className="App">
-      <div className="display-calc" />
+    <div className={styles.App}>
+      <div className={styles.container}>
+        <NumericButton />
+      </div>
     </div>
   );
 }
+
 export default App;
