@@ -7,14 +7,50 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .container{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
-    border-radius: 5px;
-    border: 1px solid #252424;
+    background-color: #656363;
+
+}
+
+.botones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.fila{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    /*gap: 10px; */
+}
+
+.numeros{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.operadores {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.resultado{
 
 }

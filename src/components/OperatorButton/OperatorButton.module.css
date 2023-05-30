@@ -1,8 +1,8 @@
-.containernButton{
+.containerButton{
     padding: 5px;
 }
 
-.NumericButton{
+.OperatorButton{
     display: flex;
     justify-content: center;
     align-items: center;
