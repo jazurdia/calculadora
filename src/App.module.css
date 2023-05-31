@@ -1,6 +1,13 @@
 body {
     margin: 0;
     padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
 }
 
 .App{
@@ -16,15 +23,11 @@ body {
     align-items: center;
     flex-direction: column;
 
+    padding: 20px;
+    gap: 20px;
+    border-radius: 20px;
     background-color: #656363;
 
-}
-
-.botones{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
 }
 
 .fila{
@@ -43,14 +46,10 @@ body {
     gap: 10px;
 }
 
-.operadores {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 10px;
+.containerError {
+    background-color: red;
+    transform: scale(1.1); /* Makes the container 10% larger */
+    transition: transform 1s ease-out; /* Animation effect */
 }
 
-.resultado{
 
-}

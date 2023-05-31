@@ -1,8 +1,8 @@
-.containernButton{
+.containernButton {
     padding: 5px;
 }
 
-.NumericButton{
+.NumericButton {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +11,17 @@
     height: 50px;
     border-radius: 10px;
     background-color: bisque;
+}
 
+.clickedNumericButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #D59951FF;  /* Use the darker color you want here */
 }
 
 .content {
