@@ -18,52 +18,32 @@ function App() {
   };
 
   const calculateResult = () => {
-    const [num1, operator, num2] = operation.split(' ');
-    let calcResult;
-    switch (operator) {
-      case '+':
-        calcResult = parseFloat(num1) + parseFloat(num2);
-        break;
-      case '-':
-        calcResult = parseFloat(num1) - parseFloat(num2);
-        break;
-      case '*':
-        calcResult = parseFloat(num1) * parseFloat(num2);
-        break;
-      case '/':
-        if (parseFloat(num2) === 0) {
-          return;
-        }
-        calcResult = parseFloat(num1) / parseFloat(num2);
-        break;
-      case '%':
-        if (parseFloat(num2) === 0) {
-          return;
-        }
-        calcResult = parseFloat(num1) % parseFloat(num2);
-        break;
-      default:
+    try {
+      // ESTO ES POR RAZONES DE SEGURIDAD CON EVAL
+      // eslint-disable-next-line no-new-func
+      const calcResult = new Function(`return ${operation}`)();
+      if (calcResult.toString().length > 9) {
         setResult('Error');
-        return;
-    }
-
-    if (calcResult.toString().length > 9) {
+      } else {
+        setResult(calcResult);
+        setOperation('');
+        setAfterOperation(true);
+      }
+    } catch (error) {
       setResult('Error');
-    } else {
-      setResult(calcResult);
-      setOperation('');
-      setAfterOperation(true);
     }
+  };
+
+  const handleSignChange = () => {
+    const numbers = operation.split(/[\s+*\-/]/);
+    const lastNumber = numbers[numbers.length - 1];
+    setOperation((prev) => prev.slice(0, -lastNumber.length) + (Number(lastNumber) * -1));
   };
 
   const handleButtonClick = (value) => {
     if (afterOperation) {
       handleClear();
       setAfterOperation(false);
-    }
-
-    if (operation.length >= 9) {
-      setResult('Error');
     }
 
     if (value === '.' && operation.includes('.')) {
@@ -88,7 +68,7 @@ function App() {
             <div className={styles.fila}>
               <OperatorButton operator="C" onClick={handleClear} />
               <OperatorButton operator="%" onClick={handleButtonClick} />
-              {/* <OperatorButton operator="+/-" onClick={handleButtonClick} /> */}
+              <OperatorButton operator="+/-" onClick={handleSignChange} />
               {/* <OperatorButton operator="del" onClick={calculateResult} /> */}
             </div>
             <div className={styles.fila}>
